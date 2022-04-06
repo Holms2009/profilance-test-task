@@ -1,5 +1,6 @@
 import block from "bem-cn";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import './Header.scss';
 import logo from '../../assets/images/logo.svg';
@@ -38,10 +39,10 @@ const Header = () => {
       </a>
       <ul className={b('menu')}>
         <li className={b('item')}>
-          <button className={b('button')}>Главная</button>
+          <Link className={b('button')} to='/'>Главная</Link>
         </li>
         <li className={b('item')}>
-          <button className={b('button')}>Новости</button>
+          <Link className={b('button')} to='/news'>Новости</Link>
         </li>
         <li className={b('item')}>
           {authStatus !== 'guest' ? <p className={b('user-name')}>{activeUser?.name}</p> : null}

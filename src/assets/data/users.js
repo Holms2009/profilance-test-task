@@ -1,12 +1,12 @@
 const users = [
   {
     name: 'Admin',
-    password: 'strong_pass',
+    password: '12345',
     status: 'admin'
   },
   {
     name: 'User',
-    password: 'weak_pass',
+    password: '54321',
     status: 'user'
   },
 ]

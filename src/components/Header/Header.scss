@@ -28,16 +28,29 @@
   }
 
   &__button {
+    display         : block;
     padding         : 10px 20px;
     background-color: orange;
+    font-size       : 14px;
+    line-height     : 100%;
+    text-decoration : none;
     color           : white;
     border          : none;
     border-radius   : 6px;
     cursor          : pointer;
+    transition      : transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    &:active {
+      transform: translateY(3px);
+    }
   }
 
   .SignInForm {
-    top  : 100%;
+    top  : calc(100% - 15px);
     right: 30px;
   }
 }
