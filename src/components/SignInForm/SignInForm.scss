@@ -1,0 +1,28 @@
+.SignInForm {
+  padding         : 20px 30px;
+  display         : flex;
+  flex-direction  : column;
+  background-color: orange;
+  border-radius   : 10px;
+  position        : absolute;
+
+  &__title {
+    margin       : 0;
+    margin-bottom: 20px;
+    color        : white;
+  }
+
+  &__error {
+    margin       : 0;
+    margin-bottom: 15px;
+    font-size    : 12px;
+    color        : white;
+  }
+
+  &__input {
+    margin-bottom: 10px;
+    padding      : 5px 8px;
+    border       : none;
+    border-radius: 6px;
+  }
+}

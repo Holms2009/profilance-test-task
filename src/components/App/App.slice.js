@@ -7,11 +7,11 @@ export const appSlice = createSlice({
     activeUser: null,
   },
   reducers: {
-    setAuthStatus: (state, payload) => {
-      state.authStatus = payload;
+    setAuthStatus: (state, action) => {
+      state.authStatus = action.payload;
     },
-    setActiveUser: (state, payload) => {
-      state.activeUser = payload;
+    setActiveUser: (state, action) => {
+      state.activeUser = action.payload;
     },
     removeActiveUser: (state) => {
       state.activeUser = null;

@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import './Header.scss';
 import logo from '../../assets/images/logo.svg';
-import { getActiveUser, getAuthStatus, removeActiveUser, setActiveUser } from "../App/App.slice";
+import { getActiveUser, getAuthStatus, removeActiveUser, setActiveUser, setAuthStatus } from "../App/App.slice";
 import { useState } from "react";
+import SignInForm from "../SignInForm/SignInForm";
 
 const b = block('Header');
 
@@ -17,11 +18,17 @@ const Header = () => {
 
   const handleLoginButton = () => {
     if (authStatus === 'guest') {
-      setShowForm(true);
+      setShowForm(!showForm);
     } else {
+      dispatch(setAuthStatus('guest'));
       dispatch(removeActiveUser());
-      dispatch(setActiveUser('guest'));
     }
+  }
+
+  const handleSignIn = (data) => {
+    dispatch(setAuthStatus(data.status));
+    dispatch(setActiveUser(data));
+    setShowForm(false);
   }
 
   return (
@@ -37,15 +44,16 @@ const Header = () => {
           <button className={b('button')}>Новости</button>
         </li>
         <li className={b('item')}>
-          {(authStatus !== 'guest') ? <p className={b('user-name')}>{activeUser.name}</p> : null}
+          {authStatus !== 'guest' ? <p className={b('user-name')}>{activeUser?.name}</p> : null}
           <button
             className={b('button')}
             onClick={handleLoginButton}
           >
-            {(authStatus !== 'guest') ? 'Выход' : 'Вход'}
+            {authStatus !== 'guest' ? 'Выход' : 'Вход'}
           </button>
         </li>
       </ul>
+      {showForm ? <SignInForm submitHandler={handleSignIn} /> : null}
     </div>
   )
 }
