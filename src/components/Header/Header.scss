@@ -1,0 +1,37 @@
+.Header {
+  padding        : 10px 30px;
+  display        : flex;
+  justify-content: space-between;
+  align-items    : center;
+
+  &__menu {
+    padding   : 0;
+    list-style: none;
+    display   : flex;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__user-name {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  &__button {
+    padding         : 10px 20px;
+    background-color: orange;
+    color           : white;
+    border          : none;
+    border-radius   : 6px;
+    cursor          : pointer;
+  }
+}
