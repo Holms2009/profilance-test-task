@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const appSlice = createSlice({
   name: 'app',
   initialState: {
-    authStatus: 'admin',
-    activeUser: { name: 'Admin' },
+    authStatus: 'guest',
+    activeUser: null,
   },
   reducers: {
     setAuthStatus: (state, action) => {

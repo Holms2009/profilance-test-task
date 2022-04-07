@@ -1,11 +1,12 @@
 import block from "bem-cn";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import './Header.scss';
 import logo from '../../assets/images/logo.svg';
+
 import { getActiveUser, getAuthStatus, removeActiveUser, setActiveUser, setAuthStatus } from "../App/App.slice";
-import { useState } from "react";
 import SignInForm from "../SignInForm/SignInForm";
 
 const b = block('Header');
@@ -34,9 +35,9 @@ const Header = () => {
 
   return (
     <div className={b()}>
-      <a className={b('logo')} href="/">
+      <Link className={b('logo')} to="/">
         <img className={b('logo-image')} src={logo} alt='Company logo' />
-      </a>
+      </Link>
       <ul className={b('menu')}>
         <li className={b('item')}>
           <Link className={b('button')} to='/'>Главная</Link>
