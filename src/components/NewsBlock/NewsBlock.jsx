@@ -1,4 +1,5 @@
 import block from "bem-cn";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import './NewsBlock.scss';
@@ -6,7 +7,8 @@ import './NewsBlock.scss';
 import { getNews, setNews } from "./NewsBlock.slice";
 import { getAuthStatus } from "../App/App.slice";
 import NewsCard from "../NewsCard/NewsCard";
-import { useState } from "react";
+import SearchFilter from "../SearchFilter/SearchFilter";
+import cardsFilter from '../../utils/cardsFilter';
 
 const b = block('NewsBlock');
 
@@ -14,6 +16,7 @@ const NewsBlock = () => {
   const [showForm, setShowForm] = useState(false);
   const [titleField, setTitleField] = useState('');
   const [textField, setTextfield] = useState('');
+  const [currentFIlter, setCurrentFilter] = useState({ type: 'title', value: '' })
 
   const dispatch = useDispatch();
   const news = useSelector(getNews);
@@ -68,20 +71,30 @@ const NewsBlock = () => {
     dispatch(setNews(updatedNews));
   }
 
+  const filterHandler = (type, value) => {
+    const updatedFilter = { type, value };
+    setCurrentFilter(updatedFilter);
+  }
+
   return (
     <div className={b()}>
-      <h1>Новости:</h1>
+      <div className={b('header')}>
+        <h1 className={b('title')}>Новости:</h1>
+        <SearchFilter filterHandler={filterHandler} />
+      </div>
       <div className={b('cards')}>
-        {news.map((item, index) => (
-          (authStatus === 'guest' && !item.accepted) ?
-            null :
+        {cardsFilter(news, currentFIlter).map((item, index) => {
+          if (authStatus === 'guest' && !item.accepted) return null;
+
+          return (
             <NewsCard
               card={item}
               key={index}
               authStatus={authStatus}
               acceptHandler={handleCardAcceptance}
             />
-        ))}
+          )
+        })}
         {authStatus === 'user' ?
           <div className={b('add-card-wrapper')}>
             {!showForm ?

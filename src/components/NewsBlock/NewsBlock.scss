@@ -1,4 +1,15 @@
 .NewsBlock {
+  &__header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
   &__cards {
     padding-bottom : 50px;
     display        : flex;
