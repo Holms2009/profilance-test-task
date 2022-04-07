@@ -50,19 +50,37 @@ const NewsBlock = () => {
     setShowForm(false);
   }
 
+  const handleCardAcceptance = (card, result) => {
+    const updatedNews = [...news];
+
+    if (result) {
+      const updatedCard = {};
+
+      Object.assign(updatedCard, card);
+      updatedCard.accepted = true;
+      updatedNews[updatedNews.indexOf(card)] = updatedCard;
+    } else {
+      const cardIndex = news.indexOf(card);
+
+      updatedNews.splice(cardIndex, 1);
+    }
+
+    dispatch(setNews(updatedNews));
+  }
+
   return (
     <div className={b()}>
       <h1>Новости:</h1>
       <div className={b('cards')}>
         {news.map((item, index) => (
-          <NewsCard
-            title={item.title}
-            text={item.text}
-            date={item.date}
-            accepted={item.accepted}
-            key={index}
-            authStatus={authStatus}
-          />
+          (authStatus === 'guest' && !item.accepted) ?
+            null :
+            <NewsCard
+              card={item}
+              key={index}
+              authStatus={authStatus}
+              acceptHandler={handleCardAcceptance}
+            />
         ))}
         {authStatus === 'user' ?
           <div className={b('add-card-wrapper')}>
