@@ -5,10 +5,13 @@
   align-items    : center;
   position       : relative;
 
-  @media screen and (max-width: 600px) {
-    padding:  10px 0;
+  @media screen and (max-width: 768px) {
+    padding: 10px 0;
   }
 
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 
   &__menu {
     padding   : 0;
@@ -16,8 +19,9 @@
     display   : flex;
 
     @media screen and (max-width: 600px) {
-      display: none;
-    }  
+      width          : 100%;
+      justify-content: flex-start;
+    }
   }
 
   &__item {
@@ -28,12 +32,36 @@
     &:not(:last-child) {
       margin-right: 20px;
     }
+
+    @media screen and (max-width: 768px) {
+      column-gap: 5px;
+
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      column-gap: 10px;
+
+      &:last-child {
+        margin-left: auto;
+      }
+    }
   }
 
   &__user-name {
     margin     : 0;
     font-size  : 20px;
     font-weight: 500;
+
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 20px;
+    }
   }
 
   &__button {
@@ -47,7 +75,7 @@
     border          : none;
     border-radius   : 6px;
     cursor          : pointer;
-    transition      : transform 0.3s ease;
+    transition      : all 0.3s ease;
 
     &:hover {
       transform: translateY(-3px);
@@ -56,10 +84,33 @@
     &:active {
       transform: translateY(3px);
     }
+
+    @media screen and (max-width: 768px) {
+      padding  : 5px 10px;
+      font-size: 12px;
+
+      &:hover {
+        transform: translateY(0);
+      }
+
+      &:active {
+        transform: translateY(0);
+        filter   : brightness(1.1);
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      padding  : 8px 16px;
+      font-size: 15px;
+    }
   }
 
   .SignInForm {
     top  : calc(100% - 15px);
     right: 30px;
+
+    @media screen and (max-width: 768px) {
+      right: 0;
+    }
   }
 }
