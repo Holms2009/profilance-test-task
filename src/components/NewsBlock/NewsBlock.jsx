@@ -43,7 +43,7 @@ const NewsBlock = () => {
     const providedData = {
       title: titleField,
       text: textField,
-      date: new Date().toDateString(),
+      date: new Date().toLocaleDateString(),
       accepted: false
     }
 

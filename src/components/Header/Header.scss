@@ -1,13 +1,9 @@
 .Header {
-  padding        : 10px 30px;
+  padding        : 10px 0;
   display        : flex;
   justify-content: space-between;
   align-items    : center;
   position       : relative;
-
-  @media screen and (max-width: 768px) {
-    padding: 10px 0;
-  }
 
   @media screen and (max-width: 600px) {
     flex-direction: column;

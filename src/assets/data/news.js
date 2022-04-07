@@ -2,31 +2,31 @@ const news = [
   {
     title: 'Первая новость',
     text: 'Тут какой-то текст новости. Нужно написать что-то ещё, чтобы объем был побольше. И ещё немного. Ну вот, достаточно.',
-    date: new Date(2022, 2, 1).toDateString(),
+    date: new Date(2022, 2, 1).toLocaleDateString(),
     accepted: true
   },
   {
     title: 'Вторая новость',
     text: 'Тут какой-то текст новости. Нужно написать что-то ещё, чтобы объем был побольше. И ещё немного. Ну вот, достаточно.',
-    date: new Date(2022, 2, 3).toDateString(),
+    date: new Date(2022, 2, 3).toLocaleDateString(),
     accepted: true
   },
   {
     title: 'Третья новость',
     text: 'Тут какой-то текст новости. Нужно написать что-то ещё, чтобы объем был побольше. И ещё немного. Ну вот, достаточно.',
-    date: new Date(2022, 2, 22).toDateString(),
+    date: new Date(2022, 2, 22).toLocaleDateString(),
     accepted: true
   },
   {
     title: 'Четвертая новость',
     text: 'Тут какой-то текст новости. Нужно написать что-то ещё, чтобы объем был побольше. И ещё немного. Ну вот, достаточно.',
-    date: new Date(2022, 2, 14).toDateString(),
+    date: new Date(2022, 2, 14).toLocaleDateString(),
     accepted: false
   },
   {
     title: 'Пятая новость',
     text: 'Тут какой-то текст новости. Нужно написать что-то ещё, чтобы объем был побольше. И ещё немного. Ну вот, достаточно.',
-    date: new Date(2022, 2, 29).toDateString(),
+    date: new Date(2022, 2, 29).toLocaleDateString(),
     accepted: true
   },
 ];
