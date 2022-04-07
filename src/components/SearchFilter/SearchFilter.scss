@@ -1,8 +1,9 @@
 .SearchFilter {
-  &__label {
-    margin-right: 10px;
-    font-size   : 18px;
-    font-weight : 500;
+  @media screen and (max-width: 600px) {
+    width          : 100%;
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: space-between;
   }
 
   &__search {
@@ -14,11 +15,20 @@
     &:focus {
       outline: 2px solid orange;
     }
+
+    @media screen and (max-width: 600px) {
+      width       : auto;
+      margin-right: 5px;
+    }
   }
 
   &__filter {
     padding      : 3px 7px;
     border       : 1px solid grey;
     border-radius: 5px;
+
+    @media screen and (max-width: 366px) {
+      margin-top: 10px;
+    }
   }
 }

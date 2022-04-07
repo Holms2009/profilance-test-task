@@ -25,8 +25,13 @@ const SearchFilter = ({ filterHandler }) => {
 
   return (
     <div className={b()}>
-      <label className={b('label')} htmlFor="filter">Поиск новостей:</label>
-      <input className={b('search')} type="text" id="filter" value={searchField} onChange={handleSearchChange} />
+      <input
+        className={b('search')}
+        type="text"
+        id="filter"
+        value={searchField}
+        placeholder="Поиск"
+        onChange={handleSearchChange} />
       <select className={b('filter')} value={filterValue} onChange={handleFilterChange}>
         <option className={b('option')} value="title">По заголовку</option>
         <option className={b('option')} value="text">По тексту</option>
