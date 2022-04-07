@@ -6,6 +6,7 @@
   border-radius   : 10px;
   position        : absolute;
   box-shadow      : 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  z-index         : 999;
 
   &__title {
     margin       : 0;

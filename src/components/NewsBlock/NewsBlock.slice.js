@@ -9,7 +9,7 @@ export const newsBlockSlice = createSlice({
   },
   reducers: {
     setNews: (state, action) => {
-      state.authStatus = action.payload;
+      state.value = action.payload;
     },
   },
 })
